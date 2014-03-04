@@ -50,7 +50,7 @@
         
         <br /><br />
         
-        <asp:GridView ID="loanGridView" runat="server" CssClass="gridview"><AlternatingRowStyle CssClass="alt" /></asp:GridView>
+        <asp:GridView ID="loanGridView" runat="server" CssClass="cssgridview"><AlternatingRowStyle CssClass="alt" /></asp:GridView>
         <% End If %>
             
         </div>

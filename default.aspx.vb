@@ -16,6 +16,8 @@ Partial Class _Default
         Dim interestPaid As Double
         Dim nBalance As Double
         Dim principal As Double
+        Dim paymentDate As Date
+
 
         'Declaring a table to hold the payment information.
         Dim table As DataTable = New DataTable("ParentTable")
@@ -64,11 +66,12 @@ Partial Class _Default
             principal = monthlyPayment - interestPaid
             nBalance = loanAmount - principal
             loanAmount = nBalance
+            paymentDate = DateTime.Now.AddMonths(counterStart).ToShortDateString
 
             'Writes the data to a new row in the gridview.
             tRow = loanAmortTbl.NewRow()
             tRow("Payment Number") = String.Format(counterStart)
-            tRow("Payment Date") = System.DateTime.Now.ToString("MM/dd/yyyy")
+            tRow("Payment Date") = String.Format(paymentDate)
             tRow("Principal Paid") = String.Format("{0:C}", principal) ' String.Format("{0:C},principal) formats the variable "prinicpal" as currency (C).
             tRow("Interest Paid") = String.Format("{0:C}", interestPaid)
             tRow("New Balance") = String.Format("{0:C}", nBalance)
